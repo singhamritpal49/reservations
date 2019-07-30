@@ -1,0 +1,9 @@
+<h2>Show page</h2>
+
+<li>
+<%= @restaurant.name %>
+<p>Address: <%= @restaurant.address %></p>
+<p>Rating: <%= @restaurant.rating %></p>
+</li>
+<%= link_to "Edit", edit_restaurant_path %>
+<%= link_to "All restaurants", restaurants_path %>

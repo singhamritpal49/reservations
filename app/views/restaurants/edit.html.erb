@@ -1,0 +1,12 @@
+<h2>Edit this restaurant</h2>
+
+<%= form_for @restaurant do |r| %>
+<%= r.label :name %>
+<%= r.text_field :name %>
+<%= r.label :address %>
+<%= r.text_field :address %>
+<%= r.label :rating %>
+<%= r.number_field :rating %>
+<%= r.submit %>
+<% end %>
+<%= button_to "Delete", restaurant_path(@restaurant), method: :delete %>
