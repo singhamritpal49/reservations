@@ -6,4 +6,16 @@
 <p><b>Phone:</b> <%= @user.phone %> </p>
 
 <h1><%= link_to "View All Users ", users_path %></h1>
+
+<h1>My Reservations</h1>
+
+<% @user.reservations.each do |reservation| %>
+<ul>
+
+    <%= reservation.meal %>
+</ul>
+<%end %>
+<%= link_to "Make A Reservation", new_reservation_path %>
+
+
 </center>

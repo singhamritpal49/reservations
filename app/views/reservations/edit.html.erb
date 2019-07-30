@@ -1,0 +1,24 @@
+<center>
+
+<h1>Update A Reservation</h1>
+
+<%= form_for @reservation do |f| %>
+<%= f.label :meal %>
+<%= f.text_field :meal %>
+
+
+<%= f.label :user_id %>
+<%= f.collection_select(:user_id, @users, :id,:name) %>
+
+<%= f.label :restaurant_id %>
+<%= f.collection_select(:restaurant_id, @restaurants, :id,:name) %>
+
+
+
+
+<%= f.submit %>
+<% end %>
+
+
+
+</center>
