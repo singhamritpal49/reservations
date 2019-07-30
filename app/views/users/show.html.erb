@@ -1,0 +1,9 @@
+
+<center>
+<h1><%= @user.name %>'s Page</h1>
+<%= link_to "Update Information", edit_user_path %>
+<p><b>Name:</b> <%= @user.name %> </p>
+<p><b>Phone:</b> <%= @user.phone %> </p>
+
+<h1><%= link_to "View All Users ", users_path %></h1>
+</center>
