@@ -39,7 +39,6 @@ end
 #private Method
 def user_params
   params.require(:user).permit(:name, :phone)
-
 end
 
 
