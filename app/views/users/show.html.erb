@@ -1,5 +1,6 @@
 
-<center>
+<div class="container">
+
 <h1><%= @user.name %>'s Page</h1>
 <%= link_to "Update Information", edit_user_path %>
 <p><b>Name:</b> <%= @user.name %> </p>
@@ -15,7 +16,25 @@
     <%= reservation.meal %>
 </ul>
 <%end %>
-<%= link_to "Make A Reservation", new_reservation_path %>
 
 
-</center>
+<div>
+  <%= link_to "Make A Reservation", new_reservation_path, :class => "btn btn-warning"  %>
+</div>
+
+</div>
+
+
+<%= form_for @reservation do |f| %>
+
+<%= f.label :meal %>
+<%= f.text_field :meal %>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+<%= f.label :restaurant_id %>
+<%= f.collection_select(:restaurant_id, @restaurants, :id,:name) %>
+
+
+<%= f.submit %>
+<% end %>

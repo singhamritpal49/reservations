@@ -7,6 +7,8 @@ end
 
 def show
   @user = User.find(params[:id])
+  @reservation = Reservation.new
+  @restaurants = Restaurant.all
 end
 
 def new
