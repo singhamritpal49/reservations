@@ -13,24 +13,17 @@
 <% @user.reservations.each do |reservation| %>
 <ul>
 
-    <%= reservation.meal %>
+    <li><%= reservation.meal %></li>
 </ul>
 <%end %>
 
-
-<div>
-  <%= link_to "Make A Reservation", new_reservation_path, :class => "btn btn-warning"  %>
-</div>
-
-</div>
-
-
+<h1>Create Reservation</h1>
 <%= form_for @reservation do |f| %>
 
 <%= f.label :meal %>
 <%= f.text_field :meal %>
 
-  <%= f.hidden_field :user_id, value: @user.id %>
+<%= f.hidden_field :user_id, value: @user.id %>
 
 <%= f.label :restaurant_id %>
 <%= f.collection_select(:restaurant_id, @restaurants, :id,:name) %>
@@ -38,3 +31,4 @@
 
 <%= f.submit %>
 <% end %>
+</div>
