@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
 
 
 
-  #private MEthod
+  #Private Method
 
   def reservation_params
     params.require(:reservation).permit(:meal, :user_id, :restaurant_id)
