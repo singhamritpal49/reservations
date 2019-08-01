@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  # has_secure_password
 
 def index
   @users = User.all
@@ -16,8 +16,15 @@ end
 
 def create
   @user = User.create(user_params)
-  redirect_to @user
+  if @user.valid?
+    session[:user_id] = @user.id
+    redirect_to @user
+  else
+    flash[:errors] = @user.errors.full_messages
+    redirect_to new_user_path
+  end
 end
+
 
 def edit
   @user = User.find(params[:id])
@@ -38,9 +45,7 @@ end
 
 #private Method
 def user_params
-  params.require(:user).permit(:name, :phone)
+  params.require(:user).permit(:name, :phone, :username, :password_digest)
 end
-
-
 
 end

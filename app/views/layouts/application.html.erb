@@ -10,6 +10,32 @@
   </head>
 
   <body>
+  <header>
+
+    <% if @logged_in %>
+
+      <h2>You have: <%= @current_user.reservations.count %> reservations</h2>
+      <p> Logged in As: <%= @current_user.username %> </p>
+      <%= button_to "Logout", "/logout", method: :delete %>
+
+    <% else %>
+
+      <%= link_to "Login", new_user_path %>
+      <%= link_to "Register", new_user_path %>
+
+    <% end %>
+
+    <% if flash[:message] %>
+      <p class="message">
+        <%= flash[:message] %>
+      </p>
+    <% end %>
+
+  </header>
+  <%= yield %>
+</body>
+
+  <body>
     <%= yield %>
   </body>
 </html>
